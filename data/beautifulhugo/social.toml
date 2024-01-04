@@ -126,7 +126,7 @@ icon = "fab fa-paypal"
 
 [[social_icons]]
 id = "telegram"
-url = "https://telegram.me/%s"
+url = "https://t.me/%s"
 title = "Telegram"
 icon = "fab fa-telegram"
 
