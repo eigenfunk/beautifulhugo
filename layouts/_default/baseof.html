@@ -6,7 +6,16 @@
 <html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
   <head>
     {{ partial "head.html" . }}
-  </head>
+    {{ if .Param "math" }}
+      {{ partialCached "math.html" . }}
+    {{ end }}
+    {{ if .Store.Get "hasMermaid" }}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true });
+    </script>
+  {{ end }}
+    </head>
   <body>
     {{ partial "nav.html" . }}
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
