@@ -45,6 +45,19 @@
 {{- with .Site.Params.author.name }}
   <meta name="author" content="{{ . }}"/>
 {{- end }}
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ with .Params.og_image }}{{ . | absURL }}{{ end }}">
+  <meta property="og:description" content="{{ .Summary }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:description" content="{{ .Summary }}">
+  <meta name="twitter:image" content="{{ with .Params.og_image }}{{ . | absURL }}{{ end }}">
 {{- partial "seo/main.html" . }}  
 {{- with .Site.Params.favicon }}
   <link href='{{ . | absURL }}' rel='icon' type='image/x-icon'/>
